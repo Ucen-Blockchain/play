@@ -1,11 +1,11 @@
 #pragma once
-#include <steemit/protocol/operations.hpp>
-#include <steemit/protocol/sign_state.hpp>
-#include <steemit/protocol/types.hpp>
+#include <ucenio/protocol/operations.hpp>
+#include <ucenio/protocol/sign_state.hpp>
+#include <ucenio/protocol/types.hpp>
 
 #include <numeric>
 
-namespace steemit { namespace protocol {
+namespace ucenio { namespace protocol {
 
    struct transaction
    {
@@ -115,8 +115,8 @@ namespace steemit { namespace protocol {
 
    /// @} transactions group
 
-} } // steemit::protocol
+} } // ucenio::protocol
 
-FC_REFLECT( steemit::protocol::transaction, (ref_block_num)(ref_block_prefix)(expiration)(operations)(extensions) )
-FC_REFLECT_DERIVED( steemit::protocol::signed_transaction, (steemit::protocol::transaction), (signatures) )
-FC_REFLECT_DERIVED( steemit::protocol::annotated_signed_transaction, (steemit::protocol::signed_transaction), (transaction_id)(block_num)(transaction_num) );
+FC_REFLECT( ucenio::protocol::transaction, (ref_block_num)(ref_block_prefix)(expiration)(operations)(extensions) )
+FC_REFLECT_DERIVED( ucenio::protocol::signed_transaction, ( ucenio::protocol::transaction), (signatures) )
+FC_REFLECT_DERIVED( ucenio::protocol::annotated_signed_transaction, (ucenio::protocol::signed_transaction), (transaction_id)(block_num)(transaction_num) );

@@ -1,11 +1,11 @@
 #pragma once
-#include <steemit/protocol/base.hpp>
-#include <steemit/protocol/block_header.hpp>
-#include <steemit/protocol/asset.hpp>
+#include <ucenio/protocol/base.hpp>
+#include <ucenio/protocol/block_header.hpp>
+#include <ucenio/protocol/asset.hpp>
 
 #include <fc/utf8.hpp>
 
-namespace steemit { namespace protocol {
+namespace ucenio { namespace protocol {
 
    struct author_reward_operation : public virtual_operation {
       author_reward_operation(){}
@@ -176,20 +176,20 @@ namespace steemit { namespace protocol {
 
    };
 
-} } //steemit::protocol
+} } //ucenio::protocol
 
-FC_REFLECT( steemit::protocol::author_reward_operation, (author)(permlink)(sbd_payout)(steem_payout)(vesting_payout) )
-FC_REFLECT( steemit::protocol::curation_reward_operation, (curator)(reward)(comment_author)(comment_permlink) )
-FC_REFLECT( steemit::protocol::comment_reward_operation, (author)(permlink)(payout) )
-FC_REFLECT( steemit::protocol::fill_convert_request_operation, (owner)(requestid)(amount_in)(amount_out) )
-FC_REFLECT( steemit::protocol::liquidity_reward_operation, (owner)(payout) )
-FC_REFLECT( steemit::protocol::interest_operation, (owner)(interest) )
-FC_REFLECT( steemit::protocol::fill_vesting_withdraw_operation, (from_account)(to_account)(withdrawn)(deposited) )
-FC_REFLECT( steemit::protocol::shutdown_witness_operation, (owner) )
-FC_REFLECT( steemit::protocol::fill_order_operation, (current_owner)(current_orderid)(current_pays)(open_owner)(open_orderid)(open_pays) )
-FC_REFLECT( steemit::protocol::fill_transfer_from_savings_operation, (from)(to)(amount)(request_id)(memo) )
-FC_REFLECT( steemit::protocol::hardfork_operation, (hardfork_id) )
-FC_REFLECT( steemit::protocol::comment_payout_update_operation, (author)(permlink) )
-FC_REFLECT( steemit::protocol::return_vesting_delegation_operation, (account)(vesting_shares) )
-FC_REFLECT( steemit::protocol::comment_benefactor_reward_operation, (benefactor)(author)(permlink)(reward) )
-FC_REFLECT( steemit::protocol::producer_reward_operation, (producer)(vesting_shares) )
+FC_REFLECT( ucenio::protocol::author_reward_operation, (author)(permlink)(sbd_payout)(steem_payout)(vesting_payout) )
+FC_REFLECT( ucenio::protocol::curation_reward_operation, (curator)(reward)(comment_author)(comment_permlink) )
+FC_REFLECT( ucenio::protocol::comment_reward_operation, (author)(permlink)(payout) )
+FC_REFLECT( ucenio::protocol::fill_convert_request_operation, (owner)(requestid)(amount_in)(amount_out) )
+FC_REFLECT( ucenio::protocol::liquidity_reward_operation, (owner)(payout) )
+FC_REFLECT( ucenio::protocol::interest_operation, (owner)(interest) )
+FC_REFLECT( ucenio::protocol::fill_vesting_withdraw_operation, (from_account)(to_account)(withdrawn)(deposited) )
+FC_REFLECT( ucenio::protocol::shutdown_witness_operation, (owner) )
+FC_REFLECT( ucenio::protocol::fill_order_operation, (current_owner)(current_orderid)(current_pays)(open_owner)(open_orderid)(open_pays) )
+FC_REFLECT( ucenio::protocol::fill_transfer_from_savings_operation, (from)(to)(amount)(request_id)(memo) )
+FC_REFLECT( ucenio::protocol::hardfork_operation, (hardfork_id) )
+FC_REFLECT( ucenio::protocol::comment_payout_update_operation, (author)(permlink) )
+FC_REFLECT( ucenio::protocol::return_vesting_delegation_operation, (account)(vesting_shares) )
+FC_REFLECT( ucenio::protocol::comment_benefactor_reward_operation, (benefactor)(author)(permlink)(reward) )
+FC_REFLECT( ucenio::protocol::producer_reward_operation, (producer)(vesting_shares) )

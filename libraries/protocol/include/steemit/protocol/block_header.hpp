@@ -1,7 +1,7 @@
 #pragma once
-#include <steemit/protocol/base.hpp>
+#include <ucenio/protocol/base.hpp>
 
-namespace steemit { namespace protocol {
+namespace ucenio { namespace protocol {
 
    struct block_header
    {
@@ -27,7 +27,7 @@ namespace steemit { namespace protocol {
    };
 
 
-} } // steemit::protocol
+} } // ucenio::protocol
 
-FC_REFLECT( steemit::protocol::block_header, (previous)(timestamp)(witness)(transaction_merkle_root)(extensions) )
-FC_REFLECT_DERIVED( steemit::protocol::signed_block_header, (steemit::protocol::block_header), (witness_signature) )
+FC_REFLECT( ucenio::protocol::block_header, (previous)(timestamp)(witness)(transaction_merkle_root)(extensions) )
+FC_REFLECT_DERIVED( ucenio::protocol::signed_block_header, (ucenio::protocol::block_header), (witness_signature) )

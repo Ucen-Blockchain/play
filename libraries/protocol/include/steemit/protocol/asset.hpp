@@ -1,8 +1,8 @@
 #pragma once
-#include <steemit/protocol/types.hpp>
-#include <steemit/protocol/config.hpp>
+#include <ucenio/protocol/types.hpp>
+#include <ucenio/protocol/config.hpp>
 
-namespace steemit { namespace protocol {
+namespace ucenio { namespace protocol {
 
    typedef uint64_t asset_symbol_type;
 
@@ -115,13 +115,13 @@ namespace steemit { namespace protocol {
    asset operator *  ( const asset& a, const price& b );
 
 
-} } // steemit::protocol
+} } // ucenio::protocol
 
 namespace fc {
-    inline void to_variant( const steemit::protocol::asset& var,  fc::variant& vo ) { vo = var.to_string(); }
-    inline void from_variant( const fc::variant& var,  steemit::protocol::asset& vo ) { vo = steemit::protocol::asset::from_string( var.as_string() ); }
+    inline void to_variant( const ucenio::protocol::asset& var,  fc::variant& vo ) { vo = var.to_string(); }
+    inline void from_variant( const fc::variant& var,  ucenio::protocol::asset& vo ) { vo = ucenio::protocol::asset::from_string( var.as_string() ); }
 }
 
-FC_REFLECT( steemit::protocol::asset, (amount)(symbol) )
-FC_REFLECT( steemit::protocol::price, (base)(quote) )
+FC_REFLECT( ucenio::protocol::asset, (amount)(symbol) )
+FC_REFLECT( ucenio::protocol::price, (base)(quote) )
 

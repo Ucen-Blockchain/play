@@ -1,8 +1,8 @@
 #pragma once
-#include <steemit/protocol/block_header.hpp>
-#include <steemit/protocol/transaction.hpp>
+#include <ucenio/protocol/block_header.hpp>
+#include <ucenio/protocol/transaction.hpp>
 
-namespace steemit { namespace protocol {
+namespace ucenio { namespace protocol {
 
    struct signed_block : public signed_block_header
    {
@@ -10,6 +10,6 @@ namespace steemit { namespace protocol {
       vector<signed_transaction> transactions;
    };
 
-} } // steemit::protocol
+} } // ucenio::protocol
 
-FC_REFLECT_DERIVED( steemit::protocol::signed_block, (steemit::protocol::signed_block_header), (transactions) )
+FC_REFLECT_DERIVED( ucenio::protocol::signed_block, (ucenio::protocol::signed_block_header), (transactions) )

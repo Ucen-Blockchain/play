@@ -8,7 +8,7 @@
 
 #ifdef IS_TEST_NET
 #define STEEMIT_INIT_PRIVATE_KEY                (fc::ecc::private_key::regenerate(fc::sha256::hash(std::string("init_key"))))
-#define STEEMIT_INIT_PUBLIC_KEY_STR             (std::string( steemit::protocol::public_key_type(STEEMIT_INIT_PRIVATE_KEY.get_public_key()) ))
+#define STEEMIT_INIT_PUBLIC_KEY_STR             (std::string( ucenio::protocol::public_key_type(STEEMIT_INIT_PRIVATE_KEY.get_public_key()) ))
 #define STEEMIT_CHAIN_ID                        (fc::sha256::hash("testnet"))
 
 #define VESTS_SYMBOL  (uint64_t(6) | (uint64_t('V') << 8) | (uint64_t('E') << 16) | (uint64_t('S') << 24) | (uint64_t('T') << 32) | (uint64_t('S') << 40)) ///< VESTS with 6 digits of precision
@@ -38,16 +38,30 @@
 #define STEEMIT_ACCOUNT_RECOVERY_REQUEST_EXPIRATION_PERIOD  fc::seconds(12)
 #define STEEMIT_OWNER_UPDATE_LIMIT                          fc::seconds(0)
 #define STEEMIT_OWNER_AUTH_HISTORY_TRACKING_START_BLOCK_NUM 1
+
 #else // IS LIVE STEEM NETWORK
 
-#define STEEMIT_INIT_PUBLIC_KEY_STR             "STM8GC13uCZbP44HzMLV6zPZGwVQ8Nt4Kji8PapsPiNq1BK153XTX"
-#define STEEMIT_CHAIN_ID                        (steemit::protocol::chain_id_type())
+#define STEEMIT_INIT_PRIVATE_KEY                (fc::ecc::private_key::regenerate(fc::sha256::hash(std::string("init_key"))))
+#define STEEMIT_INIT_PUBLIC_KEY_STR             (std::string( ucenio::protocol::public_key_type(STEEMIT_INIT_PRIVATE_KEY.get_public_key()) ))
+#define STEEMIT_CHAIN_ID                        (fc::sha256::hash("ucen_io"))
+
+//#define STEEMIT_INIT_PUBLIC_KEY_STR             "STM8GC13uCZbP44HzMLV6zPZGwVQ8Nt4Kji8PapsPiNq1BK153XTX"
+//#define STEEMIT_CHAIN_ID                        (steemit::protocol::chain_id_type())
+
 #define VESTS_SYMBOL  (uint64_t(6) | (uint64_t('V') << 8) | (uint64_t('E') << 16) | (uint64_t('S') << 24) | (uint64_t('T') << 32) | (uint64_t('S') << 40)) ///< VESTS with 6 digits of precision
-#define STEEM_SYMBOL  (uint64_t(3) | (uint64_t('S') << 8) | (uint64_t('T') << 16) | (uint64_t('E') << 24) | (uint64_t('E') << 32) | (uint64_t('M') << 40)) ///< STEEM with 3 digits of precision
-#define SBD_SYMBOL    (uint64_t(3) | (uint64_t('S') << 8) | (uint64_t('B') << 16) | (uint64_t('D') << 24) ) ///< STEEM Backed Dollars with 3 digits of precision
-#define STMD_SYMBOL   (uint64_t(3) | (uint64_t('S') << 8) | (uint64_t('T') << 16) | (uint64_t('M') << 24) | (uint64_t('D') << 32) ) ///< STEEM Dollars with 3 digits of precision
-#define STEEMIT_SYMBOL                          "STEEM"
-#define STEEMIT_ADDRESS_PREFIX                  "STM"
+#define STEEM_SYMBOL  (uint64_t(3) | (uint64_t('P') << 8) | (uint64_t('L') << 16) | (uint64_t('A') << 24) | (uint64_t('Y') << 32) | (uint64_t('S') << 40)) ///< STEEM with 3 digits of precision
+#define SBD_SYMBOL    (uint64_t(3) | (uint64_t('P') << 8) | (uint64_t('L') << 16) | (uint64_t('Y') << 24) ) ///< STEEM Backed Dollars with 3 digits of precision
+#define STMD_SYMBOL   (uint64_t(3) | (uint64_t('P') << 8) | (uint64_t('L') << 16) | (uint64_t('A') << 24) | (uint64_t('Y') << 32) ) ///< STEEM Dollars with 3 digits of precision
+
+//#define VESTS_SYMBOL  (uint64_t(6) | (uint64_t('V') << 8) | (uint64_t('E') << 16) | (uint64_t('S') << 24) | (uint64_t('T') << 32) | (uint64_t('S') << 40)) ///< VESTS with 6 digits of precision
+//#define STEEM_SYMBOL  (uint64_t(3) | (uint64_t('S') << 8) | (uint64_t('T') << 16) | (uint64_t('E') << 24) | (uint64_t('E') << 32) | (uint64_t('M') << 40)) ///< STEEM with 3 digits of precision
+//#define SBD_SYMBOL    (uint64_t(3) | (uint64_t('S') << 8) | (uint64_t('B') << 16) | (uint64_t('D') << 24) ) ///< STEEM Backed Dollars with 3 digits of precision
+//#define STMD_SYMBOL   (uint64_t(3) | (uint64_t('S') << 8) | (uint64_t('T') << 16) | (uint64_t('M') << 24) | (uint64_t('D') << 32) ) ///< STEEM Dollars with 3 digits of precision
+
+#define STEEMIT_SYMBOL                          "PLAYS"
+#define STEEMIT_ADDRESS_PREFIX                  "PLY"
+//#define STEEMIT_SYMBOL                          "STEEM"
+//#define STEEMIT_ADDRESS_PREFIX                  "STM"
 
 #define STEEMIT_GENESIS_TIME                    (fc::time_point_sec(1458835200))
 #define STEEMIT_MINING_TIME                     (fc::time_point_sec(1458838800))
@@ -60,13 +74,17 @@
 #define STEEMIT_UPVOTE_LOCKOUT_HF7              (fc::minutes(1))
 #define STEEMIT_UPVOTE_LOCKOUT_HF17             (fc::hours(12))
 
-#define STEEMIT_ORIGINAL_MIN_ACCOUNT_CREATION_FEE  100000
-#define STEEMIT_MIN_ACCOUNT_CREATION_FEE           1
+#define STEEMIT_ORIGINAL_MIN_ACCOUNT_CREATION_FEE  0
+#define STEEMIT_MIN_ACCOUNT_CREATION_FEE           0
+
+//#define STEEMIT_ORIGINAL_MIN_ACCOUNT_CREATION_FEE  100000
+//#define STEEMIT_MIN_ACCOUNT_CREATION_FEE           1
 
 #define STEEMIT_OWNER_AUTH_RECOVERY_PERIOD                  fc::days(30)
 #define STEEMIT_ACCOUNT_RECOVERY_REQUEST_EXPIRATION_PERIOD  fc::days(1)
 #define STEEMIT_OWNER_UPDATE_LIMIT                          fc::minutes(60)
-#define STEEMIT_OWNER_AUTH_HISTORY_TRACKING_START_BLOCK_NUM 3186477
+#define STEEMIT_OWNER_AUTH_HISTORY_TRACKING_START_BLOCK_NUM 1
+//#define STEEMIT_OWNER_AUTH_HISTORY_TRACKING_START_BLOCK_NUM 3186477
 
 #endif
 
@@ -215,7 +233,8 @@
 #define STEEMIT_MAX_PERMLINK_LENGTH             256
 #define STEEMIT_MAX_WITNESS_URL_LENGTH          2048
 
-#define STEEMIT_INIT_SUPPLY                     int64_t(0)
+#define STEEMIT_INIT_SUPPLY                     int64_t(1000000)  // 3-digit precision
+
 #define STEEMIT_MAX_SHARE_SUPPLY                int64_t(1000000000000000ll)
 #define STEEMIT_MAX_SIG_CHECK_DEPTH             2
 
