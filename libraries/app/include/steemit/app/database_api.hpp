@@ -1,16 +1,16 @@
 #pragma once
-#include <steemit/app/applied_operation.hpp>
-#include <steemit/app/state.hpp>
+#include <ucenio/app/applied_operation.hpp>
+#include <ucenio/app/state.hpp>
 
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/steem_objects.hpp>
-#include <steemit/chain/steem_object_types.hpp>
-#include <steemit/chain/history_object.hpp>
+#include <ucenio/chain/database.hpp>
+#include <ucenio/chain/steem_objects.hpp>
+#include <ucenio/chain/steem_object_types.hpp>
+#include <ucenio/chain/history_object.hpp>
 
-#include <steemit/tags/tags_plugin.hpp>
+#include <ucenio/tags/tags_plugin.hpp>
 
-#include <steemit/follow/follow_plugin.hpp>
-#include <steemit/witness/witness_plugin.hpp>
+#include <ucenio/follow/follow_plugin.hpp>
+#include <ucenio/witness/witness_plugin.hpp>
 
 #include <fc/api.hpp>
 #include <fc/optional.hpp>
@@ -25,16 +25,16 @@
 #include <memory>
 #include <vector>
 
-namespace steemit { namespace app {
+namespace ucenio { namespace app {
 
-using namespace steemit::chain;
-using namespace steemit::protocol;
+using namespace ucenio::chain;
+using namespace ucenio::protocol;
 using namespace std;
 
 struct order
 {
    price                order_price;
-   double               real_price; // dollars per steem
+   double               real_price; // dollars per ucen
    share_type           steem;
    share_type           sbd;
    fc::time_point_sec   created;
@@ -108,7 +108,7 @@ struct discussion_query {
 class database_api
 {
    public:
-      database_api(const steemit::app::api_context& ctx);
+      database_api(const ucenio::app::api_context& ctx);
       ~database_api();
 
       ///////////////////
@@ -437,17 +437,17 @@ class database_api
 
 } }
 
-FC_REFLECT( steemit::app::order, (order_price)(real_price)(steem)(sbd)(created) );
-FC_REFLECT( steemit::app::order_book, (asks)(bids) );
-FC_REFLECT( steemit::app::scheduled_hardfork, (hf_version)(live_time) );
-FC_REFLECT( steemit::app::liquidity_balance, (account)(weight) );
-FC_REFLECT( steemit::app::withdraw_route, (from_account)(to_account)(percent)(auto_vest) );
+FC_REFLECT( ucenio::app::order, (order_price)(real_price)(steem)(sbd)(created) );
+FC_REFLECT( ucenio::app::order_book, (asks)(bids) );
+FC_REFLECT( ucenio::app::scheduled_hardfork, (hf_version)(live_time) );
+FC_REFLECT( ucenio::app::liquidity_balance, (account)(weight) );
+FC_REFLECT( ucenio::app::withdraw_route, (from_account)(to_account)(percent)(auto_vest) );
 
-FC_REFLECT( steemit::app::discussion_query, (tag)(filter_tags)(select_tags)(select_authors)(truncate_body)(start_author)(start_permlink)(parent_author)(parent_permlink)(limit) );
+FC_REFLECT( ucenio::app::discussion_query, (tag)(filter_tags)(select_tags)(select_authors)(truncate_body)(start_author)(start_permlink)(parent_author)(parent_permlink)(limit) );
 
-FC_REFLECT_ENUM( steemit::app::withdraw_route_type, (incoming)(outgoing)(all) );
+FC_REFLECT_ENUM( ucenio::app::withdraw_route_type, (incoming)(outgoing)(all) );
 
-FC_API(steemit::app::database_api,
+FC_API(ucenio::app::database_api,
    // Subscriptions
    (set_block_applied_callback)
 
