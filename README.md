@@ -1,8 +1,8 @@
-# Introducing Steem (beta)
+# Introducing PLAY (beta)
 
-Steem is a Delegated Proof of Stake blockchain that uses a "Proof of Brain" social consnensus algorithm for token allocation.
+Steem is a Delegated Proof of Stake blockchain that uses a "Proof of Brain" social consnensus algorithm for token allocation. The blockchain is specifically designed for games.
 
-  - Currency symbol STEEM.
+  - Currency symbol PLAY.
   - 10% APR inflation narrowing to 1% APR over 20 years.
   - 75% of inflation to "Proof of Brain" social consensus algorithm.
   - 15% of inflation to stake holders.
