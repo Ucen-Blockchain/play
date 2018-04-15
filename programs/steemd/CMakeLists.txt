@@ -1,4 +1,4 @@
-add_executable( steemd main.cpp )
+add_executable( letsplay main.cpp )
 if( UNIX AND NOT APPLE )
   set(rt_library rt )
 endif()
@@ -10,7 +10,7 @@ if( GPERFTOOLS_FOUND )
 endif()
 
 if( STEEM_STATIC_BUILD )
-   target_link_libraries( steemd PRIVATE
+   target_link_libraries( letsplay PRIVATE
       "-static-libstdc++ -static-libgcc"
       steemit_plugins
       steemit_mf_plugins
@@ -24,7 +24,7 @@ if( STEEM_STATIC_BUILD )
       ${PLATFORM_SPECIFIC_LIBS}
    )
 else( STEEM_STATIC_BUILD )
-   target_link_libraries( steemd PRIVATE
+   target_link_libraries( letsplay PRIVATE
       steemit_plugins
       steemit_mf_plugins
       steemit_app
@@ -39,7 +39,7 @@ else( STEEM_STATIC_BUILD )
 endif( STEEM_STATIC_BUILD )
 
 install( TARGETS
-   steemd
+   letsplay
 
    RUNTIME DESTINATION bin
    LIBRARY DESTINATION lib

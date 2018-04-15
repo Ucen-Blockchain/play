@@ -23,15 +23,15 @@
  */
 #pragma once
 
-#include <steemit/app/plugin.hpp>
-#include <steemit/chain/database.hpp>
+#include <ucenio/app/plugin.hpp>
+#include <ucenio/chain/database.hpp>
 
 #include <boost/multi_index/composite_key.hpp>
 
 #include <fc/thread/future.hpp>
 #include <fc/api.hpp>
 
-namespace steemit { namespace private_message {
+namespace ucenio { namespace private_message {
 using namespace chain;
 using app::application;
 
@@ -167,7 +167,7 @@ typedef multi_index_container<
  *   by the posting key.
  *
  */
-class private_message_plugin : public steemit::app::plugin
+class private_message_plugin : public ucenio::app::plugin
 {
    public:
       private_message_plugin( application* app );
@@ -206,15 +206,15 @@ class private_message_api : public std::enable_shared_from_this<private_message_
       app::application* _app = nullptr;
 };
 
-} } //steemit::private_message
+} } //ucenio::private_message
 
-FC_API( steemit::private_message::private_message_api, (get_inbox)(get_outbox) );
+FC_API( ucenio::private_message::private_message_api, (get_inbox)(get_outbox) );
 
-FC_REFLECT( steemit::private_message::message_body, (thread_start)(subject)(body)(json_meta)(cc) );
+FC_REFLECT( ucenio::private_message::message_body, (thread_start)(subject)(body)(json_meta)(cc) );
 
-FC_REFLECT( steemit::private_message::message_object, (id)(from)(to)(from_memo_key)(to_memo_key)(sent_time)(receive_time)(checksum)(encrypted_message) );
-CHAINBASE_SET_INDEX_TYPE( steemit::private_message::message_object, steemit::private_message::message_index );
+FC_REFLECT( ucenio::private_message::message_object, (id)(from)(to)(from_memo_key)(to_memo_key)(sent_time)(receive_time)(checksum)(encrypted_message) );
+CHAINBASE_SET_INDEX_TYPE( ucenio::private_message::message_object, ucenio::private_message::message_index );
 
-FC_REFLECT( steemit::private_message::message_api_obj, (id)(from)(to)(from_memo_key)(to_memo_key)(sent_time)(receive_time)(checksum)(encrypted_message) );
+FC_REFLECT( ucenio::private_message::message_api_obj, (id)(from)(to)(from_memo_key)(to_memo_key)(sent_time)(receive_time)(checksum)(encrypted_message) );
 
-FC_REFLECT_DERIVED( steemit::private_message::extended_message_object, (steemit::private_message::message_api_obj), (message) );
+FC_REFLECT_DERIVED( ucenio::private_message::extended_message_object, (ucenio::private_message::message_api_obj), (message) );

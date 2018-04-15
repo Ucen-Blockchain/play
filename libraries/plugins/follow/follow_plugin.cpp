@@ -1,17 +1,17 @@
-#include <steemit/follow/follow_api.hpp>
-#include <steemit/follow/follow_objects.hpp>
-#include <steemit/follow/follow_operations.hpp>
+#include <ucenio/follow/follow_api.hpp>
+#include <ucenio/follow/follow_objects.hpp>
+#include <ucenio/follow/follow_operations.hpp>
 
-#include <steemit/app/impacted.hpp>
+#include <ucenio/app/impacted.hpp>
 
-#include <steemit/protocol/config.hpp>
+#include <ucenio/protocol/config.hpp>
 
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/index.hpp>
-#include <steemit/chain/generic_custom_operation_interpreter.hpp>
-#include <steemit/chain/operation_notification.hpp>
-#include <steemit/chain/account_object.hpp>
-#include <steemit/chain/comment_object.hpp>
+#include <ucenio/chain/database.hpp>
+#include <ucenio/chain/index.hpp>
+#include <ucenio/chain/generic_custom_operation_interpreter.hpp>
+#include <ucenio/chain/operation_notification.hpp>
+#include <ucenio/chain/account_object.hpp>
+#include <ucenio/chain/comment_object.hpp>
 
 #include <graphene/schema/schema.hpp>
 #include <graphene/schema/schema_impl.hpp>
@@ -21,12 +21,12 @@
 
 #include <memory>
 
-namespace steemit { namespace follow {
+namespace ucenio { namespace follow {
 
 namespace detail
 {
 
-using namespace steemit::protocol;
+using namespace ucenio::protocol;
 
 class follow_plugin_impl
 {
@@ -35,7 +35,7 @@ class follow_plugin_impl
 
       void plugin_initialize();
 
-      steemit::chain::database& database()
+      ucenio::chain::database& database()
       {
          return _self.database();
       }
@@ -44,13 +44,13 @@ class follow_plugin_impl
       void post_operation( const operation_notification& op_obj );
 
       follow_plugin&                                                                         _self;
-      std::shared_ptr< generic_custom_operation_interpreter< steemit::follow::follow_plugin_operation > > _custom_operation_interpreter;
+      std::shared_ptr< generic_custom_operation_interpreter< ucenio::follow::follow_plugin_operation > > _custom_operation_interpreter;
 };
 
 void follow_plugin_impl::plugin_initialize()
 {
    // Each plugin needs its own evaluator registry.
-   _custom_operation_interpreter = std::make_shared< generic_custom_operation_interpreter< steemit::follow::follow_plugin_operation > >( database() );
+   _custom_operation_interpreter = std::make_shared< generic_custom_operation_interpreter< ucenio::follow::follow_plugin_operation > >( database() );
 
    // Add each operation evaluator to the registry
    _custom_operation_interpreter->register_evaluator<follow_evaluator>( &_self );
@@ -389,8 +389,8 @@ void follow_plugin::plugin_startup()
    app().register_api_factory<follow_api>("follow_api");
 }
 
-} } // steemit::follow
+} } // ucenio::follow
 
-STEEMIT_DEFINE_PLUGIN( follow, steemit::follow::follow_plugin )
+STEEMIT_DEFINE_PLUGIN( follow, ucenio::follow::follow_plugin )
 
-//DEFINE_OPERATION_TYPE( steemit::follow::follow_plugin_operation )
+//DEFINE_OPERATION_TYPE( ucenio::follow::follow_plugin_operation )

@@ -1,17 +1,17 @@
 #ifdef IS_TEST_NET
 #include <boost/test/unit_test.hpp>
 
-#include <steemit/protocol/exceptions.hpp>
+#include <ucenio/protocol/exceptions.hpp>
 
-#include <steemit/chain/block_summary_object.hpp>
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/hardfork.hpp>
-#include <steemit/chain/history_object.hpp>
-#include <steemit/chain/steem_objects.hpp>
+#include <ucenio/chain/block_summary_object.hpp>
+#include <ucenio/chain/database.hpp>
+#include <ucenio/chain/hardfork.hpp>
+#include <ucenio/chain/history_object.hpp>
+#include <ucenio/chain/steem_objects.hpp>
 
-#include <steemit/chain/util/reward.hpp>
+#include <ucenio/chain/util/reward.hpp>
 
-#include <steemit/plugins/debug_node/debug_node_plugin.hpp>
+#include <ucenio/plugins/debug_node/debug_node_plugin.hpp>
 
 #include <fc/crypto/digest.hpp>
 
@@ -19,9 +19,9 @@
 
 #include <cmath>
 
-using namespace steemit;
-using namespace steemit::chain;
-using namespace steemit::protocol;
+using namespace ucenio;
+using namespace ucenio::chain;
+using namespace ucenio::protocol;
 
 BOOST_FIXTURE_TEST_SUITE( operation_time_tests, clean_database_fixture )
 
@@ -132,12 +132,12 @@ BOOST_AUTO_TEST_CASE( comment_payout_equalize )
       for( const auto& author : authors )
       {
          const account_object& a = db.get_account(author.name);
-         ilog( "${n} : ${steem} ${sbd}", ("n", author.name)("steem", a.reward_steem_balance)("sbd", a.reward_sbd_balance) );
+         ilog( "${n} : ${ucen} ${sbd}", ("n", author.name)("ucen", a.reward_steem_balance)("sbd", a.reward_sbd_balance) );
       }
       for( const auto& voter : voters )
       {
          const account_object& a = db.get_account(voter.name);
-         ilog( "${n} : ${steem} ${sbd}", ("n", voter.name)("steem", a.reward_steem_balance)("sbd", a.reward_sbd_balance) );
+         ilog( "${n} : ${ucen} ${sbd}", ("n", voter.name)("ucen", a.reward_steem_balance)("sbd", a.reward_sbd_balance) );
       }
       */
 
@@ -2668,7 +2668,7 @@ BOOST_AUTO_TEST_CASE( sbd_stability )
       resize_shared_mem( 1024 * 1024 * 512 ); // Due to number of blocks in the test, it requires a large file. (64 MB)
 
       // Using the debug node plugin to manually set account balances to create required market conditions for this test
-      auto db_plugin = app.register_plugin< steemit::plugin::debug_node::debug_node_plugin >();
+      auto db_plugin = app.register_plugin< ucenio::plugin::debug_node::debug_node_plugin >();
       boost::program_options::variables_map options;
       db_plugin->logging = false;
       db_plugin->plugin_initialize( options );

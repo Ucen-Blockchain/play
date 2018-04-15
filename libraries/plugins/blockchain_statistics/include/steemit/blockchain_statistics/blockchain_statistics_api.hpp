@@ -1,14 +1,14 @@
 #pragma once
 
-#include <steemit/blockchain_statistics/blockchain_statistics_plugin.hpp>
+#include <ucenio/blockchain_statistics/blockchain_statistics_plugin.hpp>
 
 #include <fc/api.hpp>
 
-namespace steemit { namespace app {
+namespace ucenio { namespace app {
    struct api_context;
 } }
 
-namespace steemit { namespace blockchain_statistics {
+namespace ucenio { namespace blockchain_statistics {
 
 namespace detail
 {
@@ -76,7 +76,7 @@ struct statistics
 class blockchain_statistics_api
 {
    public:
-      blockchain_statistics_api( const steemit::app::api_context& ctx );
+      blockchain_statistics_api( const ucenio::app::api_context& ctx );
 
       void on_api_startup();
 
@@ -105,9 +105,9 @@ class blockchain_statistics_api
       std::shared_ptr< detail::blockchain_statistics_api_impl > my;
 };
 
-} } // steemit::blockchain_statistics
+} } // ucenio::blockchain_statistics
 
-FC_REFLECT( steemit::blockchain_statistics::statistics,
+FC_REFLECT( ucenio::blockchain_statistics::statistics,
    (blocks)
    (bandwidth)
    (operations)
@@ -162,7 +162,7 @@ FC_REFLECT( steemit::blockchain_statistics::statistics,
    (estimated_hashpower) )
 
 
-FC_API( steemit::blockchain_statistics::blockchain_statistics_api,
+FC_API( ucenio::blockchain_statistics::blockchain_statistics_api,
    (get_stats_for_time)
    (get_stats_for_interval)
    (get_lifetime_stats)

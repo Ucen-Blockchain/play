@@ -1,16 +1,16 @@
 #ifdef IS_TEST_NET
 #include <boost/test/unit_test.hpp>
 
-#include <steemit/protocol/exceptions.hpp>
+#include <ucenio/protocol/exceptions.hpp>
 
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/database_exceptions.hpp>
-#include <steemit/chain/hardfork.hpp>
-#include <steemit/chain/steem_objects.hpp>
+#include <ucenio/chain/database.hpp>
+#include <ucenio/chain/database_exceptions.hpp>
+#include <ucenio/chain/hardfork.hpp>
+#include <ucenio/chain/steem_objects.hpp>
 
-#include <steemit/chain/util/reward.hpp>
+#include <ucenio/chain/util/reward.hpp>
 
-#include <steemit/witness/witness_objects.hpp>
+#include <ucenio/witness/witness_objects.hpp>
 
 #include <fc/crypto/digest.hpp>
 
@@ -20,9 +20,9 @@
 #include <iostream>
 #include <stdexcept>
 
-using namespace steemit;
-using namespace steemit::chain;
-using namespace steemit::protocol;
+using namespace ucenio;
+using namespace ucenio::chain;
+using namespace ucenio::protocol;
 using fc::string;
 
 BOOST_FIXTURE_TEST_SUITE( operation_tests, clean_database_fixture )
@@ -543,7 +543,7 @@ BOOST_AUTO_TEST_CASE( comment_apply )
 
       db.modify( db.get_dynamic_global_properties(), [&]( dynamic_global_property_object& o)
       {
-         o.total_reward_shares2 = steemit::chain::util::evaluate_reward_curve( 10 );
+         o.total_reward_shares2 = ucenio::chain::util::evaluate_reward_curve( 10 );
       });
 
       tx.signatures.clear();
@@ -3659,7 +3659,7 @@ BOOST_AUTO_TEST_CASE( escrow_transfer_validate )
       op.sbd_amount.symbol = STEEM_SYMBOL;
       STEEMIT_REQUIRE_THROW( op.validate(), fc::exception );
 
-      BOOST_TEST_MESSAGE( "--- failure when steem symbol != STEEM" );
+      BOOST_TEST_MESSAGE( "--- failure when ucen symbol != STEEM" );
       op.sbd_amount.symbol = SBD_SYMBOL;
       op.steem_amount.symbol = SBD_SYMBOL;
       STEEMIT_REQUIRE_THROW( op.validate(), fc::exception );
@@ -3669,7 +3669,7 @@ BOOST_AUTO_TEST_CASE( escrow_transfer_validate )
       op.fee.symbol = VESTS_SYMBOL;
       STEEMIT_REQUIRE_THROW( op.validate(), fc::exception );
 
-      BOOST_TEST_MESSAGE( "--- failure when sbd == 0 and steem == 0" );
+      BOOST_TEST_MESSAGE( "--- failure when sbd == 0 and ucen == 0" );
       op.fee.symbol = STEEM_SYMBOL;
       op.sbd_amount.amount = 0;
       op.steem_amount.amount = 0;
@@ -3680,7 +3680,7 @@ BOOST_AUTO_TEST_CASE( escrow_transfer_validate )
       op.steem_amount.amount = 1000;
       STEEMIT_REQUIRE_THROW( op.validate(), fc::exception );
 
-      BOOST_TEST_MESSAGE( "--- failure when steem < 0" );
+      BOOST_TEST_MESSAGE( "--- failure when ucen < 0" );
       op.sbd_amount.amount = 1000;
       op.steem_amount.amount = -100;
       STEEMIT_REQUIRE_THROW( op.validate(), fc::exception );
@@ -4444,7 +4444,7 @@ BOOST_AUTO_TEST_CASE( escrow_release_validate )
       op.receiver = "bob";
 
 
-      BOOST_TEST_MESSAGE( "--- failure when steem < 0" );
+      BOOST_TEST_MESSAGE( "--- failure when ucen < 0" );
       op.steem_amount.amount = -1;
       STEEMIT_REQUIRE_THROW( op.validate(), fc::exception );
 
@@ -4455,7 +4455,7 @@ BOOST_AUTO_TEST_CASE( escrow_release_validate )
       STEEMIT_REQUIRE_THROW( op.validate(), fc::exception );
 
 
-      BOOST_TEST_MESSAGE( "--- failure when steem == 0 and sbd == 0" );
+      BOOST_TEST_MESSAGE( "--- failure when ucen == 0 and sbd == 0" );
       op.sbd_amount.amount = 0;
       STEEMIT_REQUIRE_THROW( op.validate(), fc::exception );
 
@@ -4465,7 +4465,7 @@ BOOST_AUTO_TEST_CASE( escrow_release_validate )
       STEEMIT_REQUIRE_THROW( op.validate(), fc::exception );
 
 
-      BOOST_TEST_MESSAGE( "--- failure when steem is not steem symbol" );
+      BOOST_TEST_MESSAGE( "--- failure when ucen is not ucen symbol" );
       op.sbd_amount.symbol = SBD_SYMBOL;
       op.steem_amount = ASSET( "1.000 TBD" );
       STEEMIT_REQUIRE_THROW( op.validate(), fc::exception );
@@ -4720,7 +4720,7 @@ BOOST_AUTO_TEST_CASE( escrow_release_apply )
       STEEMIT_REQUIRE_THROW( db.push_transaction( tx, 0 ), fc::exception );
 
 
-      BOOST_TEST_MESSAGE( "--- failure when releasing less steem than available" );
+      BOOST_TEST_MESSAGE( "--- failure when releasing less ucen than available" );
       op.steem_amount = ASSET( "0.000 TESTS" );
       op.sbd_amount = ASSET( "1.000 TBD" );
 

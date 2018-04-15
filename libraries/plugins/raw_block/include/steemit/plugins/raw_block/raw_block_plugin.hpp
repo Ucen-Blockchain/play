@@ -1,13 +1,13 @@
 
 #pragma once
 
-#include <steemit/app/plugin.hpp>
+#include <ucenio/app/plugin.hpp>
 
-namespace steemit { namespace plugin { namespace raw_block {
+namespace ucenio { namespace plugin { namespace raw_block {
 
-using steemit::app::application;
+using ucenio::app::application;
 
-class raw_block_plugin : public steemit::app::plugin
+class raw_block_plugin : public ucenio::app::plugin
 {
    public:
       raw_block_plugin( application* app );
