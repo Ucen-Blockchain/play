@@ -23,15 +23,15 @@
  */
 #pragma once
 
-#include <steemit/app/plugin.hpp>
-#include <steemit/chain/steem_objects.hpp>
+#include <ucenio/app/plugin.hpp>
+#include <ucenio/chain/steem_objects.hpp>
 
-namespace steemit { namespace delayed_node {
+namespace ucenio { namespace delayed_node {
 namespace detail { struct delayed_node_plugin_impl; }
 
 using app::application;
 
-class delayed_node_plugin : public steemit::app::plugin
+class delayed_node_plugin : public ucenio::app::plugin
 {
    std::unique_ptr<detail::delayed_node_plugin_impl> my;
 public:
@@ -51,5 +51,5 @@ protected:
    void sync_with_trusted_node();
 };
 
-} } //steemit::account_history
+} } //ucenio::account_history
 
