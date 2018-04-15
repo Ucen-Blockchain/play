@@ -1,19 +1,19 @@
 #pragma once
-#include <steemit/app/plugin.hpp>
-#include <steemit/chain/database.hpp>
+#include <ucenio/app/plugin.hpp>
+#include <ucenio/chain/database.hpp>
 
-#include <steemit/account_by_key/account_by_key_api.hpp>
+#include <ucenio/account_by_key/account_by_key_api.hpp>
 
-namespace steemit { namespace account_by_key {
+namespace ucenio { namespace account_by_key {
 
 #define ACCOUNT_BY_KEY_PLUGIN_NAME "account_by_key"
 
 namespace detail { class account_by_key_plugin_impl; }
 
-class account_by_key_plugin : public steemit::app::plugin
+class account_by_key_plugin : public ucenio::app::plugin
 {
    public:
-      account_by_key_plugin( steemit::app::application* app );
+      account_by_key_plugin( ucenio::app::application* app );
 
       std::string plugin_name()const override { return ACCOUNT_BY_KEY_PLUGIN_NAME; }
       virtual void plugin_set_program_options(
@@ -26,4 +26,4 @@ class account_by_key_plugin : public steemit::app::plugin
       std::unique_ptr< detail::account_by_key_plugin_impl > my;
 };
 
-} } // steemit::account_by_key
+} } // ucenio::account_by_key

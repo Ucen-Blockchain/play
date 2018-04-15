@@ -1,12 +1,12 @@
 #pragma once
-#include <steemit/chain/steem_object_types.hpp>
+#include <ucenio/chain/steem_object_types.hpp>
 
 #include <boost/multi_index/composite_key.hpp>
 
-namespace steemit { namespace account_by_key {
+namespace ucenio { namespace account_by_key {
 
 using namespace std;
-using namespace steemit::chain;
+using namespace ucenio::chain;
 
 #ifndef ACCOUNT_BY_KEY_SPACE_ID
 #define ACCOUNT_BY_KEY_SPACE_ID 11
@@ -67,8 +67,8 @@ typedef multi_index_container<
    allocator< key_lookup_object >
 > key_lookup_index;
 
-} } // steemit::account_by_key
+} } // ucenio::account_by_key
 
 
-FC_REFLECT( steemit::account_by_key::key_lookup_object, (id)(key)(account) )
-CHAINBASE_SET_INDEX_TYPE( steemit::account_by_key::key_lookup_object, steemit::account_by_key::key_lookup_index )
+FC_REFLECT( ucenio::account_by_key::key_lookup_object, (id)(key)(account) )
+CHAINBASE_SET_INDEX_TYPE( ucenio::account_by_key::key_lookup_object, ucenio::account_by_key::key_lookup_index )

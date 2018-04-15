@@ -1,15 +1,15 @@
-#include <steemit/account_by_key/account_by_key_plugin.hpp>
-#include <steemit/account_by_key/account_by_key_objects.hpp>
+#include <ucenio/account_by_key/account_by_key_plugin.hpp>
+#include <ucenio/account_by_key/account_by_key_objects.hpp>
 
-#include <steemit/chain/account_object.hpp>
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/index.hpp>
-#include <steemit/chain/operation_notification.hpp>
+#include <ucenio/chain/account_object.hpp>
+#include <ucenio/chain/database.hpp>
+#include <ucenio/chain/index.hpp>
+#include <ucenio/chain/operation_notification.hpp>
 
 #include <graphene/schema/schema.hpp>
 #include <graphene/schema/schema_impl.hpp>
 
-namespace steemit { namespace account_by_key {
+namespace ucenio { namespace account_by_key {
 
 namespace detail
 {
@@ -19,7 +19,7 @@ class account_by_key_plugin_impl
    public:
       account_by_key_plugin_impl( account_by_key_plugin& _plugin ) : _self( _plugin ) {}
 
-      steemit::chain::database& database()
+      ucenio::chain::database& database()
       {
          return _self.database();
       }
@@ -241,7 +241,7 @@ void account_by_key_plugin_impl::post_operation( const operation_notification& n
 
 } // detail
 
-account_by_key_plugin::account_by_key_plugin( steemit::app::application* app )
+account_by_key_plugin::account_by_key_plugin( ucenio::app::application* app )
    : plugin( app ), my( new detail::account_by_key_plugin_impl( *this ) ) {}
 
 void account_by_key_plugin::plugin_set_program_options(
@@ -269,6 +269,6 @@ void account_by_key_plugin::plugin_startup()
    app().register_api_factory< account_by_key_api >( "account_by_key_api" );
 }
 
-} } // steemit::account_by_key
+} } // ucenio::account_by_key
 
-STEEMIT_DEFINE_PLUGIN( account_by_key, steemit::account_by_key::account_by_key_plugin )
+STEEMIT_DEFINE_PLUGIN( account_by_key, ucenio::account_by_key::account_by_key_plugin )
