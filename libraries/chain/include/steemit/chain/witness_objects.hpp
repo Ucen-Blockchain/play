@@ -1,22 +1,22 @@
 #pragma once
 
-#include <steemit/protocol/authority.hpp>
-#include <steemit/protocol/steem_operations.hpp>
+#include <ucenio/protocol/authority.hpp>
+#include <ucenio/protocol/steem_operations.hpp>
 
-#include <steemit/chain/steem_object_types.hpp>
+#include <ucenio/chain/steem_object_types.hpp>
 
 #include <boost/multi_index/composite_key.hpp>
 
-namespace steemit { namespace chain {
+namespace ucenio { namespace chain {
 
-   using steemit::protocol::chain_properties;
-   using steemit::protocol::digest_type;
-   using steemit::protocol::public_key_type;
-   using steemit::protocol::version;
-   using steemit::protocol::hardfork_version;
-   using steemit::protocol::price;
-   using steemit::protocol::asset;
-   using steemit::protocol::asset_symbol_type;
+   using ucenio::protocol::chain_properties;
+   using ucenio::protocol::digest_type;
+   using ucenio::protocol::public_key_type;
+   using ucenio::protocol::version;
+   using ucenio::protocol::hardfork_version;
+   using ucenio::protocol::price;
+   using ucenio::protocol::asset;
+   using ucenio::protocol::asset_symbol_type;
 
    /**
     *  All witnesses with at least 1% net positive approval and
@@ -234,9 +234,9 @@ namespace steemit { namespace chain {
 
 } }
 
-FC_REFLECT_ENUM( steemit::chain::witness_object::witness_schedule_type, (top19)(timeshare)(miner)(none) )
+FC_REFLECT_ENUM( ucenio::chain::witness_object::witness_schedule_type, (top19)(timeshare)(miner)(none) )
 
-FC_REFLECT( steemit::chain::witness_object,
+FC_REFLECT( ucenio::chain::witness_object,
              (id)
              (owner)
              (created)
@@ -248,12 +248,12 @@ FC_REFLECT( steemit::chain::witness_object,
              (running_version)
              (hardfork_version_vote)(hardfork_time_vote)
           )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::witness_object, steemit::chain::witness_index )
+CHAINBASE_SET_INDEX_TYPE( ucenio::chain::witness_object, ucenio::chain::witness_index )
 
-FC_REFLECT( steemit::chain::witness_vote_object, (id)(witness)(account) )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::witness_vote_object, steemit::chain::witness_vote_index )
+FC_REFLECT( ucenio::chain::witness_vote_object, (id)(witness)(account) )
+CHAINBASE_SET_INDEX_TYPE( ucenio::chain::witness_vote_object, ucenio::chain::witness_vote_index )
 
-FC_REFLECT( steemit::chain::witness_schedule_object,
+FC_REFLECT( ucenio::chain::witness_schedule_object,
              (id)(current_virtual_time)(next_shuffle_block_num)(current_shuffled_witnesses)(num_scheduled_witnesses)
              (top19_weight)(timeshare_weight)(miner_weight)(witness_pay_normalization_factor)
              (median_props)(majority_version)
@@ -262,4 +262,4 @@ FC_REFLECT( steemit::chain::witness_schedule_object,
              (max_runner_witnesses)
              (hardfork_required_witnesses)
           )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::witness_schedule_object, steemit::chain::witness_schedule_index )
+CHAINBASE_SET_INDEX_TYPE( ucenio::chain::witness_schedule_object, ucenio::chain::witness_schedule_index )

@@ -1,12 +1,12 @@
 #pragma once
 
-#include <steemit/protocol/steem_operations.hpp>
+#include <ucenio/protocol/steem_operations.hpp>
 
-#include <steemit/chain/evaluator.hpp>
+#include <ucenio/chain/evaluator.hpp>
 
-namespace steemit{ namespace chain {
+namespace ucenio{ namespace chain {
 
-using namespace steemit::protocol;
+using namespace ucenio::protocol;
 
 DEFINE_EVALUATOR( account_create )
 DEFINE_EVALUATOR( account_create_with_delegation )
@@ -51,4 +51,4 @@ DEFINE_EVALUATOR( set_reset_account )
 DEFINE_EVALUATOR( claim_reward_balance )
 DEFINE_EVALUATOR( delegate_vesting_shares )
 
-} } // steemit::chain
+} } // ucenio::chain

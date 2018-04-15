@@ -1,21 +1,21 @@
 #pragma once
 
-#include <steemit/chain/util/asset.hpp>
-#include <steemit/chain/steem_objects.hpp>
+#include <ucenio/chain/util/asset.hpp>
+#include <ucenio/chain/steem_objects.hpp>
 
-#include <steemit/protocol/asset.hpp>
-#include <steemit/protocol/config.hpp>
-#include <steemit/protocol/types.hpp>
+#include <ucenio/protocol/asset.hpp>
+#include <ucenio/protocol/config.hpp>
+#include <ucenio/protocol/types.hpp>
 
 #include <fc/reflect/reflect.hpp>
 
 #include <fc/uint128.hpp>
 
-namespace steemit { namespace chain { namespace util {
+namespace ucenio { namespace chain { namespace util {
 
-using steemit::protocol::asset;
-using steemit::protocol::price;
-using steemit::protocol::share_type;
+using ucenio::protocol::asset;
+using ucenio::protocol::price;
+using ucenio::protocol::share_type;
 
 using fc::uint128_t;
 
@@ -45,9 +45,9 @@ inline bool is_comment_payout_dust( const price& p, uint64_t steem_payout )
    return to_sbd( p, asset( steem_payout, STEEM_SYMBOL ) ) < STEEMIT_MIN_PAYOUT_SBD;
 }
 
-} } } // steemit::chain::util
+} } } // ucenio::chain::util
 
-FC_REFLECT( steemit::chain::util::comment_reward_context,
+FC_REFLECT( ucenio::chain::util::comment_reward_context,
    (rshares)
    (reward_weight)
    (max_sbd)

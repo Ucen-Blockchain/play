@@ -2,14 +2,14 @@
  * Copyright (c) 2015 Cryptonomex, Inc., and contributors.
  */
 #pragma once
-#include <steemit/chain/global_property_object.hpp>
-#include <steemit/chain/hardfork.hpp>
-#include <steemit/chain/node_property_object.hpp>
-#include <steemit/chain/fork_database.hpp>
-#include <steemit/chain/block_log.hpp>
-#include <steemit/chain/operation_notification.hpp>
+#include <ucenio/chain/global_property_object.hpp>
+#include <ucenio/chain/hardfork.hpp>
+#include <ucenio/chain/node_property_object.hpp>
+#include <ucenio/chain/fork_database.hpp>
+#include <ucenio/chain/block_log.hpp>
+#include <ucenio/chain/operation_notification.hpp>
 
-#include <steemit/protocol/protocol.hpp>
+#include <ucenio/protocol/protocol.hpp>
 
 //#include <graphene/db2/database.hpp>
 #include <fc/signals.hpp>
@@ -18,14 +18,14 @@
 
 #include <map>
 
-namespace steemit { namespace chain {
+namespace ucenio { namespace chain {
 
-   using steemit::protocol::signed_transaction;
-   using steemit::protocol::operation;
-   using steemit::protocol::authority;
-   using steemit::protocol::asset;
-   using steemit::protocol::asset_symbol_type;
-   using steemit::protocol::price;
+   using ucenio::protocol::signed_transaction;
+   using ucenio::protocol::operation;
+   using ucenio::protocol::authority;
+   using ucenio::protocol::asset;
+   using ucenio::protocol::asset_symbol_type;
+   using ucenio::protocol::price;
 
    class database_impl;
    class custom_operation_interpreter;

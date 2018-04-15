@@ -1,8 +1,8 @@
 #pragma once
 
-#include <steemit/chain/database.hpp>
+#include <ucenio/chain/database.hpp>
 
-namespace steemit { namespace chain {
+namespace ucenio { namespace chain {
 
 template< typename MultiIndexType >
 void _add_index_impl( database& db )

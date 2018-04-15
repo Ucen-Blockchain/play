@@ -1,11 +1,11 @@
-#include <steemit/chain/steem_evaluator.hpp>
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/custom_operation_interpreter.hpp>
-#include <steemit/chain/steem_objects.hpp>
-#include <steemit/chain/witness_objects.hpp>
-#include <steemit/chain/block_summary_object.hpp>
+#include <ucenio/chain/steem_evaluator.hpp>
+#include <ucenio/chain/database.hpp>
+#include <ucenio/chain/custom_operation_interpreter.hpp>
+#include <ucenio/chain/steem_objects.hpp>
+#include <ucenio/chain/witness_objects.hpp>
+#include <ucenio/chain/block_summary_object.hpp>
 
-#include <steemit/chain/util/reward.hpp>
+#include <ucenio/chain/util/reward.hpp>
 
 #ifndef IS_LOW_MEM
 #include <diff_match_patch.h>
@@ -30,7 +30,7 @@ std::string wstring_to_utf8(const std::wstring& str)
 
 #include <limits>
 
-namespace steemit { namespace chain {
+namespace ucenio { namespace chain {
    using fc::uint128_t;
 
 inline void validate_permlink_0_1( const string& permlink )

@@ -1,15 +1,15 @@
 #pragma once
 
-#include <steemit/protocol/authority.hpp>
-#include <steemit/protocol/steem_operations.hpp>
+#include <ucenio/protocol/authority.hpp>
+#include <ucenio/protocol/steem_operations.hpp>
 
-#include <steemit/chain/steem_object_types.hpp>
-#include <steemit/chain/witness_objects.hpp>
+#include <ucenio/chain/steem_object_types.hpp>
+#include <ucenio/chain/witness_objects.hpp>
 
 #include <boost/multi_index/composite_key.hpp>
 
 
-namespace steemit { namespace chain {
+namespace ucenio { namespace chain {
 
    using protocol::beneficiary_route_type;
 
@@ -241,9 +241,9 @@ namespace steemit { namespace chain {
       allocator< comment_object >
    > comment_index;
 
-} } // steemit::chain
+} } // ucenio::chain
 
-FC_REFLECT( steemit::chain::comment_object,
+FC_REFLECT( ucenio::chain::comment_object,
              (id)(author)(permlink)
              (category)(parent_author)(parent_permlink)
              (title)(body)(json_metadata)(last_update)(created)(active)(last_payout)
@@ -254,9 +254,9 @@ FC_REFLECT( steemit::chain::comment_object,
              (max_accepted_payout)(percent_steem_dollars)(allow_replies)(allow_votes)(allow_curation_rewards)
              (beneficiaries)
           )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::comment_object, steemit::chain::comment_index )
+CHAINBASE_SET_INDEX_TYPE( ucenio::chain::comment_object, ucenio::chain::comment_index )
 
-FC_REFLECT( steemit::chain::comment_vote_object,
+FC_REFLECT( ucenio::chain::comment_vote_object,
              (id)(voter)(comment)(weight)(rshares)(vote_percent)(last_update)(num_changes)
           )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::comment_vote_object, steemit::chain::comment_vote_index )
+CHAINBASE_SET_INDEX_TYPE( ucenio::chain::comment_vote_object, ucenio::chain::comment_vote_index )

@@ -1,12 +1,12 @@
 
 #pragma once
 
-#include <steemit/protocol/steem_operations.hpp>
-#include <steemit/protocol/operation_util_impl.hpp>
+#include <ucenio/protocol/steem_operations.hpp>
+#include <ucenio/protocol/operation_util_impl.hpp>
 
-#include <steemit/chain/evaluator.hpp>
-#include <steemit/chain/evaluator_registry.hpp>
-#include <steemit/chain/custom_operation_interpreter.hpp>
+#include <ucenio/chain/evaluator.hpp>
+#include <ucenio/chain/evaluator_registry.hpp>
+#include <ucenio/chain/custom_operation_interpreter.hpp>
 
 #include <graphene/schema/schema.hpp>
 
@@ -15,7 +15,7 @@
 #include <string>
 #include <vector>
 
-namespace steemit { namespace chain {
+namespace ucenio { namespace chain {
 
 class database;
 

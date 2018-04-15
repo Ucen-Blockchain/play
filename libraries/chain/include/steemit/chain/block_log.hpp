@@ -1,10 +1,10 @@
 #pragma once
 #include <fc/filesystem.hpp>
-#include <steemit/protocol/block.hpp>
+#include <ucenio/protocol/block.hpp>
 
-namespace steemit { namespace chain {
+namespace ucenio { namespace chain {
 
-   using namespace steemit::protocol;
+   using namespace ucenio::protocol;
 
    namespace detail { class block_log_impl; }
 

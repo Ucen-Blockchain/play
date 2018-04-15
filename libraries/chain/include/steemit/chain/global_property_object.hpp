@@ -1,14 +1,14 @@
 #pragma once
 #include <fc/uint128.hpp>
 
-#include <steemit/chain/steem_object_types.hpp>
+#include <ucenio/chain/steem_object_types.hpp>
 
-#include <steemit/protocol/asset.hpp>
+#include <ucenio/protocol/asset.hpp>
 
-namespace steemit { namespace chain {
+namespace ucenio { namespace chain {
 
-   using steemit::protocol::asset;
-   using steemit::protocol::price;
+   using ucenio::protocol::asset;
+   using ucenio::protocol::price;
 
    /**
     * @class dynamic_global_property_object
@@ -124,9 +124,9 @@ namespace steemit { namespace chain {
       allocator< dynamic_global_property_object >
    > dynamic_global_property_index;
 
-} } // steemit::chain
+} } // ucenio::chain
 
-FC_REFLECT( steemit::chain::dynamic_global_property_object,
+FC_REFLECT( ucenio::chain::dynamic_global_property_object,
              (id)
              (head_block_number)
              (head_block_id)
@@ -154,4 +154,4 @@ FC_REFLECT( steemit::chain::dynamic_global_property_object,
              (last_irreversible_block_num)
              (vote_power_reserve_rate)
           )
-CHAINBASE_SET_INDEX_TYPE( steemit::chain::dynamic_global_property_object, steemit::chain::dynamic_global_property_index )
+CHAINBASE_SET_INDEX_TYPE( ucenio::chain::dynamic_global_property_object, ucenio::chain::dynamic_global_property_index )

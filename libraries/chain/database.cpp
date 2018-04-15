@@ -1,26 +1,26 @@
-#include <steemit/protocol/steem_operations.hpp>
+#include <ucenio/protocol/steem_operations.hpp>
 
-#include <steemit/chain/block_summary_object.hpp>
-#include <steemit/chain/compound.hpp>
-#include <steemit/chain/custom_operation_interpreter.hpp>
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/database_exceptions.hpp>
-#include <steemit/chain/db_with.hpp>
-#include <steemit/chain/evaluator_registry.hpp>
-#include <steemit/chain/global_property_object.hpp>
-#include <steemit/chain/history_object.hpp>
-#include <steemit/chain/index.hpp>
-#include <steemit/chain/steem_evaluator.hpp>
-#include <steemit/chain/steem_objects.hpp>
-#include <steemit/chain/transaction_object.hpp>
-#include <steemit/chain/shared_db_merkle.hpp>
-#include <steemit/chain/operation_notification.hpp>
-#include <steemit/chain/witness_schedule.hpp>
+#include <ucenio/chain/block_summary_object.hpp>
+#include <ucenio/chain/compound.hpp>
+#include <ucenio/chain/custom_operation_interpreter.hpp>
+#include <ucenio/chain/database.hpp>
+#include <ucenio/chain/database_exceptions.hpp>
+#include <ucenio/chain/db_with.hpp>
+#include <ucenio/chain/evaluator_registry.hpp>
+#include <ucenio/chain/global_property_object.hpp>
+#include <ucenio/chain/history_object.hpp>
+#include <ucenio/chain/index.hpp>
+#include <ucenio/chain/steem_evaluator.hpp>
+#include <ucenio/chain/steem_objects.hpp>
+#include <ucenio/chain/transaction_object.hpp>
+#include <ucenio/chain/shared_db_merkle.hpp>
+#include <ucenio/chain/operation_notification.hpp>
+#include <ucenio/chain/witness_schedule.hpp>
 
-#include <steemit/chain/util/asset.hpp>
-#include <steemit/chain/util/reward.hpp>
-#include <steemit/chain/util/uint256.hpp>
-#include <steemit/chain/util/reward.hpp>
+#include <ucenio/chain/util/asset.hpp>
+#include <ucenio/chain/util/reward.hpp>
+#include <ucenio/chain/util/uint256.hpp>
+#include <ucenio/chain/util/reward.hpp>
 
 #include <fc/smart_ref_impl.hpp>
 #include <fc/uint128.hpp>
@@ -34,7 +34,7 @@
 #include <fstream>
 #include <functional>
 
-namespace steemit { namespace chain {
+namespace ucenio { namespace chain {
 
 //namespace db2 = graphene::db2;
 
@@ -60,11 +60,11 @@ struct db_schema
 
 } }
 
-FC_REFLECT( steemit::chain::object_schema_repr, (space_type)(type) )
-FC_REFLECT( steemit::chain::operation_schema_repr, (id)(type) )
-FC_REFLECT( steemit::chain::db_schema, (types)(object_types)(operation_type)(custom_operation_types) )
+FC_REFLECT( ucenio::chain::object_schema_repr, (space_type)(type) )
+FC_REFLECT( ucenio::chain::operation_schema_repr, (id)(type) )
+FC_REFLECT( ucenio::chain::db_schema, (types)(object_types)(operation_type)(custom_operation_types) )
 
-namespace steemit { namespace chain {
+namespace ucenio { namespace chain {
 
 using boost::container::flat_set;
 
@@ -1354,7 +1354,7 @@ void database::process_vesting_withdrawals()
       share_type vests_deposited_as_vests = 0;
       asset total_steem_converted = asset( 0, STEEM_SYMBOL );
 
-      // Do two passes, the first for vests, the second for steem. Try to maintain as much accuracy for vests as possible.
+      // Do two passes, the first for vests, the second for ucen. Try to maintain as much accuracy for vests as possible.
       for( auto itr = didx.upper_bound( boost::make_tuple( from_account.id, account_id_type() ) );
            itr != didx.end() && itr->from_account == from_account.id;
            ++itr )
@@ -4178,4 +4178,4 @@ void database::retally_witness_vote_counts( bool force )
    }
 }
 
-} } //steemit::chain
+} } //ucenio::chain

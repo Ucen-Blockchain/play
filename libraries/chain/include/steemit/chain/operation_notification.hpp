@@ -1,10 +1,10 @@
 #pragma once
 
-#include <steemit/protocol/operations.hpp>
+#include <ucenio/protocol/operations.hpp>
 
-#include <steemit/chain/steem_object_types.hpp>
+#include <ucenio/chain/steem_object_types.hpp>
 
-namespace steemit { namespace chain {
+namespace ucenio { namespace chain {
 
 struct operation_notification
 {
