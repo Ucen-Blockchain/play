@@ -24,13 +24,13 @@
 #ifdef IS_TEST_NET
 #include <boost/test/unit_test.hpp>
 
-#include <steemit/protocol/exceptions.hpp>
+#include <ucenio/protocol/exceptions.hpp>
 
-#include <steemit/chain/database.hpp>
-#include <steemit/chain/steem_objects.hpp>
-#include <steemit/chain/history_object.hpp>
+#include <ucenio/chain/database.hpp>
+#include <ucenio/chain/steem_objects.hpp>
+#include <ucenio/chain/history_object.hpp>
 
-#include <steemit/account_history/account_history_plugin.hpp>
+#include <ucenio/account_history/account_history_plugin.hpp>
 
 #include <graphene/utilities/tempdir.hpp>
 
@@ -38,9 +38,9 @@
 
 #include "../common/database_fixture.hpp"
 
-using namespace steemit;
-using namespace steemit::chain;
-using namespace steemit::protocol;
+using namespace ucenio;
+using namespace ucenio::chain;
+using namespace ucenio::protocol;
 
 #define TEST_SHARED_MEM_SIZE (1024 * 1024 * 8)
 
@@ -715,8 +715,8 @@ BOOST_FIXTURE_TEST_CASE( hardfork_test, database_fixture )
          if( arg == "--show-test-names" )
             std::cout << "running test " << boost::unit_test::framework::current_test_case().p_name << std::endl;
       }
-      auto ahplugin = app.register_plugin< steemit::account_history::account_history_plugin >();
-      db_plugin = app.register_plugin< steemit::plugin::debug_node::debug_node_plugin >();
+      auto ahplugin = app.register_plugin< ucenio::account_history::account_history_plugin >();
+      db_plugin = app.register_plugin< ucenio::plugin::debug_node::debug_node_plugin >();
       init_account_pub_key = init_account_priv_key.get_public_key();
 
       boost::program_options::variables_map options;
