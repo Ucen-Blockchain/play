@@ -38,9 +38,9 @@
 
 #include <graphene/utilities/key_conversion.hpp>
 
-#include <steemit/app/api.hpp>
-#include <steemit/protocol/protocol.hpp>
-#include <steemit/wallet/wallet.hpp>
+#include <ucenio/app/api.hpp>
+#include <ucenio/protocol/protocol.hpp>
+#include <ucenio/wallet/wallet.hpp>
 
 #include <fc/interprocess/signals.hpp>
 #include <boost/program_options.hpp>
@@ -59,9 +59,9 @@
 
 
 using namespace graphene::utilities;
-using namespace steemit::app;
-using namespace steemit::chain;
-using namespace steemit::wallet;
+using namespace ucenio::app;
+using namespace ucenio::chain;
+using namespace ucenio::wallet;
 using namespace std;
 namespace bpo = boost::program_options;
 
