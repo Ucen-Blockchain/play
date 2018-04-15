@@ -1,7 +1,7 @@
 #pragma once
-#include <steemit/app/plugin.hpp>
+#include <ucenio/app/plugin.hpp>
 
-#include <steemit/chain/steem_object_types.hpp>
+#include <ucenio/chain/steem_object_types.hpp>
 
 #include <boost/multi_index/composite_key.hpp>
 
@@ -23,9 +23,9 @@
 #define BLOCKCHAIN_STATISTICS_PLUGIN_NAME "chain_stats"
 #endif
 
-namespace steemit { namespace blockchain_statistics {
+namespace ucenio { namespace blockchain_statistics {
 
-using namespace steemit::chain;
+using namespace ucenio::chain;
 using app::application;
 
 enum blockchain_statistics_object_type
@@ -38,7 +38,7 @@ namespace detail
    class blockchain_statistics_plugin_impl;
 }
 
-class blockchain_statistics_plugin : public steemit::app::plugin
+class blockchain_statistics_plugin : public ucenio::app::plugin
 {
    public:
       blockchain_statistics_plugin( application* app );
@@ -134,9 +134,9 @@ typedef multi_index_container<
    allocator< bucket_object >
 > bucket_index;
 
-} } // steemit::blockchain_statistics
+} } // ucenio::blockchain_statistics
 
-FC_REFLECT( steemit::blockchain_statistics::bucket_object,
+FC_REFLECT( ucenio::blockchain_statistics::bucket_object,
    (id)
    (open)
    (seconds)
@@ -184,4 +184,4 @@ FC_REFLECT( steemit::blockchain_statistics::bucket_object,
    (total_pow)
    (estimated_hashpower)
 )
-CHAINBASE_SET_INDEX_TYPE( steemit::blockchain_statistics::bucket_object, steemit::blockchain_statistics::bucket_index )
+CHAINBASE_SET_INDEX_TYPE( ucenio::blockchain_statistics::bucket_object, ucenio::blockchain_statistics::bucket_index )
