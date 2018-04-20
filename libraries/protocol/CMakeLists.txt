@@ -30,4 +30,4 @@ INSTALL( TARGETS
    ARCHIVE DESTINATION lib
 )
 
-INSTALL( FILES ${HEADERS} DESTINATION "include/steemit/protocol" )
+INSTALL( FILES ${HEADERS} DESTINATION "include/ucenio/protocol" )
