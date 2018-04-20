@@ -2260,4 +2260,4 @@ void delegate_vesting_shares_evaluator::do_apply( const delegate_vesting_shares_
    }
 }
 
-} } // steemit::chain
+} } // ucenio::chain
