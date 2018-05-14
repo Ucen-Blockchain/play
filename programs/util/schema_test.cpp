@@ -1,6 +1,6 @@
-#include <graphene/db/schema.hpp>
-#include <graphene/db/schema_impl.hpp>
-#include <graphene/db/schema_types.hpp>
+#include <graphene/schema/schema.hpp>
+#include <graphene/schema/schema_impl.hpp>
+#include <graphene/schema/schema_types.hpp>
 
 #include <iostream>
 #include <memory>
@@ -56,6 +56,7 @@ int main( int argc, char** argv, char** envp )
    {
       process( s );
    }
+
 
    return 0;
 }

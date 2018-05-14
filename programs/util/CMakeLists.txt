@@ -58,26 +58,26 @@ install( TARGETS
 #add_executable( schema_test schema_test.cpp )
 #target_link_libraries( schema_test
 #                       PRIVATE steemit_chain fc ${CMAKE_DL_LIBS} ${PLATFORM_SPECIFIC_LIBS} )
-#
+
 #install( TARGETS
 #   schema_test
-#
+
 #   RUNTIME DESTINATION bin
 #   LIBRARY DESTINATION lib
 #   ARCHIVE DESTINATION lib
 #)
 
-#add_executable( test_block_log test_block_log.cpp )
-#target_link_libraries( test_block_log
-                       #PRIVATE steemit_chain steemit_protocol fc ${CMAKE_DL_LIB} ${PLATFORM_SPECIFIC_LIBS} )
+add_executable( test_block_log test_block_log.cpp )
+target_link_libraries( test_block_log
+                       PRIVATE steemit_chain steemit_protocol fc ${CMAKE_DL_LIB} ${PLATFORM_SPECIFIC_LIBS} )
 
-#install( TARGETS
-#   test_block_log
+install( TARGETS
+   test_block_log
 
- #  RUNTIME DESTINATION bin
- #  LIBRARY DESTINATION lib
- #  ARCHIVE DESTINATION lib
-#)
+  RUNTIME DESTINATION bin
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+)
 
 add_executable( test_fixed_string test_fixed_string.cpp )
 target_link_libraries( test_fixed_string
